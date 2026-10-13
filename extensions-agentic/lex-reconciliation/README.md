@@ -71,3 +71,7 @@ gem 'lex-reconciliation'
 ## License
 
 MIT
+
+## Development in this fork
+
+Read the [LegionIO fork development guide](../../docs/DEVELOPMENT.md) before testing this bundled extension. Use synthetic desired/observed state and stub the persistence and event-publishing boundaries; do not start the reconciliation actor against live targets. The root `spec/` planner does not select this extension's nested suite, so inspect `spec/spec_helper.rb` in this directory and plan its tests separately.

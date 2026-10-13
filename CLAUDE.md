@@ -1,7 +1,8 @@
 # LegionIO: Async Job Engine and Task Framework
 
-**Repository Level 3 Documentation**
-- **Parent**: `../CLAUDE.md`
+**Repository architecture reference**
+
+For standalone fork development, read [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md); no parent-workspace path is required.
 
 ## Purpose
 
@@ -9,7 +10,7 @@ The primary gem for the LegionIO framework. An extensible async job engine for s
 
 **GitHub**: https://github.com/LegionIO/LegionIO
 **Gem**: `legionio`
-**Version**: 1.8.12
+**Version**: see `lib/legion/version.rb`
 **License**: Apache-2.0
 **Docker**: `legionio/legion`
 **Ruby**: >= 3.4
@@ -792,11 +793,11 @@ rack-test, rake, rspec, rubocop, rubocop-rspec, simplecov
 
 ```bash
 bundle install
-bundle exec rspec       # ~3500+ examples, 0 failures
-bundle exec rubocop     # 0 offenses
+bundle exec rspec       # run in an isolated test environment
+bundle exec rubocop     # non-mutating lint
 ```
 
-**Always run a full `bundle exec rspec` and `bundle exec rubocop -A` and fix all errors before committing.**
+**Before publication, run full RSpec and non-mutating RuboCop under the isolation guidance in `docs/DEVELOPMENT.md`; report blockers explicitly.**
 
 Specs use `rack-test` for API testing. `Legion::JSON.load` returns symbol keys — use `body[:data]` not `body['data']` in specs.
 
