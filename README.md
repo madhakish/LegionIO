@@ -18,7 +18,7 @@ Schedule tasks, chain services into dependency graphs, run them concurrently via
 [![Ruby](https://img.shields.io/badge/ruby-%3E%3D%203.4-red.svg)](https://www.ruby-lang.org/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-**Ruby >= 3.4** | **v1.8.12** | **Apache-2.0** | [@Esity](https://github.com/Esity)
+**Ruby >= 3.4** | **Version**: [`version.rb`](lib/legion/version.rb) | **Apache-2.0** | [@Esity](https://github.com/Esity)
 
 ---
 
@@ -551,11 +551,11 @@ Each phase registers with `Legion::Readiness`. All phases are individually toggl
 git clone https://github.com/LegionIO/LegionIO.git
 cd LegionIO
 bundle install
-bundle exec rspec       # ~3500+ examples, 0 failures
-bundle exec rubocop     # 0 offenses
+bundle exec rspec       # run in an isolated test environment
+bundle exec rubocop     # non-mutating lint
 ```
 
-Always run `bundle exec rspec` and `bundle exec rubocop -A` and fix all errors before committing.
+Before publication, run full RSpec and non-mutating RuboCop in an isolated test environment; see the fork development guide below.
 
 ### Project Structure
 
@@ -582,3 +582,7 @@ Always run `bundle exec rspec` and `bundle exec rubocop -A` and fix all errors b
 ## License
 
 Apache-2.0
+
+## Developing this fork
+
+See [the fork development guide](docs/DEVELOPMENT.md) for the source/spec map, an offline RSpec planning helper, safe validation boundaries and proposed self-hosted CI improvements. Agent entry points are [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md). Helpers do not start Legion or access live services.
